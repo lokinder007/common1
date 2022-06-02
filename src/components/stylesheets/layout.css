@@ -1,0 +1,122 @@
+/* navbar style  */
+
+.navbar-bg {
+  background-color: #24a9e7;
+  padding: 1px 0;
+  z-index: 99;
+  height: 12vh;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* .logo {
+    display: grid;
+    grid-column: 2/3;
+    
+    justify-content: start;
+    align-items: center;
+  } */
+
+.logo h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(rgb(235, 8, 8), blue);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo h2 span {
+  font-size: 3rem;
+}
+
+.navbar li {
+  padding: 0 0.5rem;
+  color: white !important;
+}
+
+.navbar li a {
+  font-size: 1.5rem;
+  font-weight: normal;
+  position: relative;
+}
+
+/* .menu_active {
+    font-weight: bold;
+    border-bottom: 1rem solid green;
+    color: green !important;
+  } */
+
+.navbar li a:hover {
+  color: blue !important;
+  /* text-shadow: 0 0.2rem 0.3rem green; */
+  /* font-weight: bold; */
+}
+
+.social-links {
+  padding-left: 5em;
+}
+.social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  background-color: yellow;
+  margin: 0 5px;
+  text-align: center;
+  border-radius: 50%;
+  color: green;
+  transition: all 0.5s ease;
+}
+.social-links a:hover {
+  color: blue;
+  background-color: rgb(79, 235, 79);
+}
+
+/* main style start */
+
+main {
+  min-height: 85vh;
+  /* min-height: auto; */
+  /* border: 8px solid blue; */
+  margin-top: 4%;
+  padding: 30px;
+  /* background-color: yellow; */
+  background: linear-gradient(to right, yellow, #00ff6c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#header h1 {
+  margin: 0 0 10px 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: green;
+}
+
+#header .brand-name {
+  color: blue;
+}
+
+#header h2 {
+  color: #484848;
+  font-size: 24px;
+}
+
+/* footer style start */
+
+footer {
+  /* height: 7vh; */
+  /* padding: 10px; */
+  /* text-align: center; */
+  background-color: #003f5c;
+  color: white;
+  /* position: relative; */
+  /* bottom: 0; */
+  /* left: 0; */
+  /* right: 0; */
+}
