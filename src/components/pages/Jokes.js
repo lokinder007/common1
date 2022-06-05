@@ -4,23 +4,30 @@ import { Button, Container } from 'react-bootstrap'
 
 const Jokes = () => {
     var size = 10;
-    const [joke, setJoke] = useState('')
+    const [joke, setJoke] = useState([])
+    const [num, setNum] = useState(0)
+
     const [photo, setPhoto] = useState([])
 
     const getJoke = () => {
-        // axios.get('https://official-joke-api.appspot.com/random_joke')
-        axios.get('https://api.jokes.one/jod?category=animal')
+
+        axios.get('https://lokinder007.github.io/jsonapi/jokes.json')
             .then(res => {
-                console.log(res.data.contents.jokes.text)
-                // setJoke(res.data.setup + '...' + res.data.punchline);
+                console.log(res.data[num])
+                // setJoke(res.data);
+                setJoke(`${res.data[num].setup}.... ${res.data[num].punchline}`)
             })
             .catch(err => {
                 alert('Somthing went wrong.')
             })
+        setNum(num + 1)
     }
+    // useEffect(() => {
+    //     getJoke()
+    // }, [])
 
     const getPhoto = () => {
-        // axios.get('https://official-joke-api.appspot.com/random_joke')
+
         axios.get('https://jsonplaceholder.typicode.com/photos')
             .then((res) => {
                 console.log(res.data)
@@ -37,7 +44,17 @@ const Jokes = () => {
         <Container>
             <h1>Jokes</h1>
             <Button onClick={getJoke}> Get Joke </Button> <br /><br />
-            {joke}
+            {/* {
+                joke.map((j) => {
+                    return (
+                        <p>{j.setup} ... {j.punchline} </p>
+                    )
+                })
+            } */}
+
+            <h2 className='mb-4'>{joke}</h2> 
+
+
             <Button onClick={getPhoto}> Get Photo </Button> <br /><br />
             {/* {
                 <img src={photo} alt="image" />

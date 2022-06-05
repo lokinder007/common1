@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Button, Container, Modal, Table } from 'react-bootstrap'
 
-const Users = () => {
+const Users1 = () => {
 
   const [data, setData] = useState([])
   const [RowData, SetRowData] = useState([])
@@ -29,27 +29,11 @@ const Users = () => {
   const [address, setaddress] = useState("")
 
   const [Delete, setDelete] = useState(false)
+
   //Id for update record and Delete
   const [id, setId] = useState("");
 
-  // useEffect(() => {
-  //   axios.get('https://reqres.in/api/users?page=1')
-  //     .then(res => {
-  //       // alert('Success')
-  //       console.log(res.data)
-  //       setData(res?.data?.data)
-  //     })
-  //     .catch(err => {
-  //       alert('Somthing went wrong.')
-  //     })
-
-  // fetch('https://reqres.in/api/users?page=1')
-  // .then((res) => res.json())
-  // .then((data) => {
-  //   console.log(data)
-  //   setData(data?.data)
-  // })
-  // }, [])
+  
 
   const GetUsersData = () => {
     //here we will get all employee data
@@ -64,14 +48,13 @@ const Users = () => {
         alert('Somthing went wrong.')
       })
   }
-  const handleSubmit = () => {
+  const handleSubmite = () => {
     const url = 'https://lokinder007.github.io/jsonapi/users.json'
     const Credentials = { name, email, phone, address }
     axios.post(url, Credentials)
       .then(res => {
         // alert('Success')
-        setData([Credentials, ...data])
-          // window.location.reload()
+        setData(res.data)
         // console.log(res)
       })
       .catch(err => {
@@ -213,7 +196,7 @@ const Users = () => {
                 <div className='form-group mt-3'>
                   <input type="text" className='form-control' onChange={(e) => setaddress(e.target.value)} placeholder="Please enter Address" />
                 </div>
-                <Button type='submit' className='btn btn-success mt-4' onClick={handleSubmit}>Add User</Button>
+                <Button type='submit' className='btn btn-success mt-4' onClick={handleSubmite}>Add User</Button>
               </div>
             </Modal.Body>
             <Modal.Footer>
@@ -272,4 +255,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default Users1
