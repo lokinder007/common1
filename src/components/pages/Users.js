@@ -29,31 +29,15 @@ const Users = () => {
   const [address, setaddress] = useState("")
 
   const [Delete, setDelete] = useState(false)
+
   //Id for update record and Delete
-  const [id, setId] = useState("");
+  const [userId, setUserId] = useState("");
 
-  // useEffect(() => {
-  //   axios.get('https://reqres.in/api/users?page=1')
-  //     .then(res => {
-  //       // alert('Success')
-  //       console.log(res.data)
-  //       setData(res?.data?.data)
-  //     })
-  //     .catch(err => {
-  //       alert('Somthing went wrong.')
-  //     })
-
-  // fetch('https://reqres.in/api/users?page=1')
-  // .then((res) => res.json())
-  // .then((data) => {
-  //   console.log(data)
-  //   setData(data?.data)
-  // })
-  // }, [])
 
   const GetUsersData = () => {
     //here we will get all employee data
-    const url = 'https://lokinder007.github.io/jsonapi/users.json'
+    // const url = 'https://lokinder007.github.io/jsonapi/users.json'
+    const url = 'http://localhost:9000/users'
     axios.get(url)
       .then(res => {
         // alert('Success')
@@ -65,38 +49,41 @@ const Users = () => {
       })
   }
   const handleSubmit = () => {
-    const url = 'https://lokinder007.github.io/jsonapi/users.json'
+    // const url = 'https://lokinder007.github.io/jsonapi/users.json'
+    const url = 'http://localhost:9000/users'
     const Credentials = { name, email, phone, address }
     axios.post(url, Credentials)
       .then(res => {
-        // alert('Success')
+        alert('User Added Successfully')
         setData([Credentials, ...data])
-          // window.location.reload()
+          window.location.reload()
         // console.log(res)
       })
       .catch(err => {
         alert('Somthing went wrong.')
       })
   }
-  const handleEdit = () => {
-    const url = `https://lokinder007.github.io/jsonapi/users.json/${id}`
+  const handleEdit = (userId) => {
+    // const url = `https://lokinder007.github.io/jsonapi/users.json/${id}`
+    const url = 'http://localhost:9000/users/${userId}'
     const Credentials = { name, email, phone, address }
     axios.put(url, Credentials)
       .then(res => {
-        // alert('Success')
+        alert('User Edited Successfully')
         window.location.reload()
-        // console.log(res)
+        console.log(res)
       })
       .catch(err => {
         alert('Somthing went wrong.')
       })
   }
   //handle Delete Function 
-  const handleDelete = () => {
-    const url = `https://lokinder007.github.io/jsonapi/users.json/${id}`
+  const handleDelete = (user) => {
+    // const url = `https://lokinder007.github.io/jsonapi/users.json/${id}`
+    const url = 'http://localhost:9000/users/${userId}'
     axios.delete(url)
       .then(res => {
-        // alert('Success')
+        alert('User Deleted Successfully')
         window.location.reload()
         // console.log(res)
       })
@@ -131,9 +118,9 @@ const Users = () => {
           <tbody>
             {
               data.length > 0 &&
-              data.map((item, index) => {
+              data.map((item) => {
                 return (
-                  <tr key={index}>
+                  <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
@@ -141,8 +128,8 @@ const Users = () => {
                     <td>{item.address}</td>
                     <td style={{ minWidth: 190 }}>
                       <Button size='sm' variant='primary' onClick={() => { handleViewShow(SetRowData(item)) }}>View</Button>|
-                      <Button size='sm' variant='warning' onClick={() => { handleEditShow(SetRowData(item), setId(item.id)) }}>Edit</Button>|
-                      <Button size='sm' variant='danger' onClick={() => { handleViewShow(SetRowData(item), setId(item.id), setDelete(true)) }}>Delete</Button>|
+                      <Button size='sm' variant='warning' onClick={() => { handleEditShow(SetRowData(item), setUserId(item.id)) }}>Edit</Button>|
+                      <Button size='sm' variant='danger' onClick={() => { handleViewShow(SetRowData(item), setUserId(item.id), setDelete(true)) }}>Delete</Button>|
                     </td>
                   </tr>
                 )
@@ -188,6 +175,7 @@ const Users = () => {
             </Modal.Footer>
           </Modal>
         </div>
+
         {/* Modal for submit data to database */}
         <div className='model-box-view'>
           <Modal
@@ -221,6 +209,7 @@ const Users = () => {
             </Modal.Footer>
           </Modal>
         </div>
+
         {/* Modal for Edit employee record */}
         <div className='model-box-view'>
           <Modal

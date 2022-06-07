@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "name": "Lokesh",
+      "email": "lokesh@gmail.com",
+      "phone": "7889456123",
+      "address": "Gandhinagar",
+      "id": 5
+    },
+    {
+      "name": "Lokinder",
+      "email": "lokinder@gmail.com",
+      "phone": "123456783",
+      "address": "AFV Residency",
+      "id": 6
+    },
+    {
+      "name": "Loki",
+      "email": "loki@gmail",
+      "phone": "159753456",
+      "address": "ADI",
+      "id": 7
+    },
+    {
+      "name": "ABC",
+      "email": "abc@gmail.com",
+      "phone": "123456789",
+      "address": "GNC",
+      "id": 8
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "Colleague"
+    },
+    {
+      "id": "2",
+      "name": "Friend"
+    },
+    {
+      "id": "3",
+      "name": "Family"
+    },
+    {
+      "id": "4",
+      "name": "Service"
+    },
+    {
+      "id": "5",
+      "name": "Community"
+    },
+    {
+      "id": "6",
+      "name": "Social"
+    }
+  ]
+}

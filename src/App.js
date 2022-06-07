@@ -15,6 +15,7 @@ import Login from './components/pages/Login'
 import Signup from './components/pages/Signup'
 import Jokes from './components/pages/Jokes'
 import News from './components/pages/News'
+import AddUser from './components/pages/AddUser'
 
 function App() {
   return (
@@ -25,7 +26,13 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/tasks" exact element={<Tasks />} />
+
             <Route path="/users" exact element={<Users />} />
+            <Route path="/users/add" exact element={<AddUser />} />
+            {/* <Route path="/users/view/:userId" exact element={<ViewContact />} /> */}
+            {/* <Route path="/users/edit/:userId" exact element={<EditContact />} /> */}
+           
+
             <Route path="/jokes" exact element={<Jokes />} />
             <Route path="/news" exact element={<News />} />
             <Route path="/about" exact element={<About />} />
